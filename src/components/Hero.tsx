@@ -1,4 +1,9 @@
+import { useDispatch } from "react-redux";
+import { onLoading, onNotLoading } from "../store/slice/Loading";
+
 const Hero = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="hero min-h-screen bg-base-200">
@@ -10,7 +15,18 @@ const Hero = () => {
               excepturi exercitationem quasi. In deleniti eaque aut repudiandae
               et a id nisi.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                dispatch(onLoading());
+
+                setInterval(() => {
+                  dispatch(onNotLoading());
+                }, 2000);
+              }}
+            >
+              Get Started
+            </button>
           </div>
         </div>
       </div>

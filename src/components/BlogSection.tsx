@@ -1,10 +1,10 @@
 import Card from "./Card";
 
-const BlogSection = () => {
+const BlogSection = (props) => {
   return (
     <div className="flex flex-wrap gap-2 justify-center">
-      {[1, 2, 3, 4, 5].map(() => (
-        <Card />
+      {props.data.map((blogs, index) => (
+        <Card key={index} data={blogs} />
       ))}
     </div>
   );

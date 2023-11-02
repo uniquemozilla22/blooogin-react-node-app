@@ -5,8 +5,8 @@ import { getBlogs } from '../../controller/Blog/Blog.controller.js'
 
 const BlogRouter = Router()
 
-BlogRouter.get("/",(req,res)=>{
-    const data = getBlogs()
+BlogRouter.get("/", async (req,res)=>{
+    const data =await getBlogs()
     res.send(data) 
 })
 
