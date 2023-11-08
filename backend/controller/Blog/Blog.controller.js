@@ -22,6 +22,20 @@ export const deleteBlog = async (id) =>{
     }
 }
 
+export const postBlog = async(blog) =>{
+
+    try{
+        const database_blog  = new Blog({...blog})
+        await database_blog.save()
+
+        return database_blog
+    }
+    catch(error){
+        console.log(error)
+        return null
+    }
+}
+
 
 
 

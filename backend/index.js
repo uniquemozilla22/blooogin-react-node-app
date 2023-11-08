@@ -8,6 +8,7 @@ connect_database()
 
 // middleware
 app.use(cors())
+app.use(express.json())
 
 // Routes
 

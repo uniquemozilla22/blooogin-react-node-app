@@ -1,6 +1,6 @@
 
 import  {Router } from 'express'
-import { deleteBlog, getBlogs } from '../../controller/Blog/Blog.controller.js'
+import { deleteBlog, getBlogs, postBlog } from '../../controller/Blog/Blog.controller.js'
 
 
 const BlogRouter = Router()
@@ -24,6 +24,25 @@ BlogRouter.delete("/",async (req,res)=>{
         return;
     }
     
+})
+
+
+BlogRouter.post("/", async (req, res)=>{
+
+    const {title , description , image } = req.body
+
+    if(!title || !description){
+        res.status(500).send({message:" Title and Description is required to make a post "})
+        return;
+    }
+    const blog = await postBlog({title, description, image , date:new Date().toLocaleString(), time: new Date().getTime()})
+
+    if(!blog){
+        res.status(500).send({message:"There is an internal error in posting the blog"})
+        return;
+    }
+
+    res.status(200).send({message:"Data has been posted.", data: blog})
 })
 
 

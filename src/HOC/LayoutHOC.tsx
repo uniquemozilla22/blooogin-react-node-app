@@ -4,7 +4,7 @@ import BottomNavigation from "../components/Navigation";
 import TopNavigation from "../components/TopNavigation";
 
 const LayoutHOC = ({ children }: any) => {
-  const isLoading = useSelector((state) => state.LOADING.status);
+  const isLoading = useSelector((state) => state.blog.isLoading);
   return (
     <>
       {isLoading && <Loading />}

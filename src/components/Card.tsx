@@ -1,5 +1,4 @@
 const Card = ({ data, deleteData }) => {
-  data.description += "...";
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
